@@ -1,0 +1,59 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+  <input type="hidden" name="PMId" [value]="service.formData.PMId">
+
+
+  <div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-tie" [class.green-icon]="FIO.valid" [class.red-icon]="FIO.invalid && FIO.touched"></i>
+          </div>
+         </div>
+      <input name="FIO"  #FIO="ngModel" [(ngModel)]="service.formData.FIO" class="form-control"  placeholder="Full name" required maxlength="20" minlength="2">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user"></i>
+        </div>
+        </div>
+      <select name="Position" #Position="ngModel" [(ngModel)]="service.formData.Position" class="form-control" placeholder="Position">
+        <option value="Developer">Developer</option>
+        <option value="QA">QA</option>
+        <option value="TeamLead">TeamLead</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group" col-md-7>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-calendar-alt" [class.green-icon]="DateOfStartHoliday.valid" [class.red-icon]="DateOfStartHoliday.invalid && DateOfStartHoliday.touched"></i>
+          </div>
+        </div>
+        <input name="DateOfStartHoliday" #DateOfStartHoliday="ngModel" [(ngModel)]="service.formData.DateOfStartHoliday" class="form-control" placeholder="DD/MM/YYYY" required>
+      </div>
+    </div>
+
+    <div class="form-group" col-md-7>
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="far fa-calendar-alt" [class.green-icon]="DateOfEndHoliday.valid" [class.red-icon]="DateOfEndHoliday.invalid && DateOfEndHoliday.touched"></i>
+            </div>
+        </div>
+        <input name="DateOfEndHoliday" #DateOfEndHoliday="ngModel" [(ngModel)]="service.formData.DateOfEndHoliday" class="form-control" placeholder="DD/MM/YYYY" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i>   Submit</button>
+  </div>
+</form>
