@@ -29,7 +29,7 @@ export class WorkerDetailComponent implements OnInit  {
        this.service.formData = {
         PMId:0,
         FIO:'',
-        Position:0
+        Position:''
       }
 
      }

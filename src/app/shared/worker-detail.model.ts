@@ -1,7 +1,7 @@
 export class WorkerDetail {
   PMId :number;
   FIO :string;
-  Position :number;
+  Position :string;
  // DateOfStartHoliday :string;
   //DateOfEndHoliday :string;
 }

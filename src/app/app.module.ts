@@ -12,6 +12,8 @@ import { WorkerDetailComponent } from './worker-details/worker-detail/worker-det
 import { WorkerDetailListComponent } from './worker-details/worker-detail-list/worker-detail-list.component';
 import {WorkerDetailService} from "./shared/worker-detail.service";
 import {FormsModule} from "@angular/forms";
+import { WorkerHolidayListComponent } from './worker-details/worker-holiday-list/worker-holiday-list.component';
+import { WorkerHolidayComponent } from "./worker-details/worker-holiday/worker-holiday.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {FormsModule} from "@angular/forms";
     WorkerDetailsComponent,
     WorkerDetailComponent,
     WorkerDetailListComponent,
+    WorkerHolidayComponent,
+    WorkerHolidayListComponent
   ],
   imports: [
     BrowserModule,

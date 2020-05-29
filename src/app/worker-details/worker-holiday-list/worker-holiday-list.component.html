@@ -26,15 +26,17 @@
   <tr>
     <th>FIO</th>
     <th>Position</th>
+    <th>Date</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of service.list |  paginate: {id: 'listing_pagination',
+  <tr *ngFor="let user of serviceHoliday.listForHoliday |  paginate: {id: 'listing_pagination',
   itemsPerPage: 5,
   currentPage: page,
   totalItems: totalRecords}">
-  <td (click)="populateForm(user)">{{user.FIO}}</td>
-  <td (click)="populateForm(user)">{{user.Position}}</td>
+    <td>{{user.FIO}}</td>
+    <td>{{user.Position}}</td>
+    <td>{{user.Date}}</td>
   </tr>
   </tbody>
 </table>

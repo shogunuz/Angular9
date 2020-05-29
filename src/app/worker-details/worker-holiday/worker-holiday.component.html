@@ -1,0 +1,53 @@
+<form #formHoliday="ngForm" autocomplete="off" (submit)="onSubmitHoliday(formHoliday)">
+<!--
+  <input type="hidden" name="PMId" [value]="service.formData.PMId">
+-->
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-tie" [class.green-icon]="FIOforHoliday.valid" [class.red-icon]="FIOforHoliday.invalid && FIOforHoliday.touched"></i>
+        </div>
+      </div>
+      <input name="FIOforHoliday"  #FIOforHoliday="ngModel" [(ngModel)]="serviceHoliday.formDataForHoliday.FIO" class="form-control"  placeholder="Full name" required maxlength="20" minlength="2">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+      <select name="PositionForHoliday" #PositionForHoliday="ngModel" [(ngModel)]="serviceHoliday.formDataForHoliday.Position" class="form-control" placeholder="Position">
+        <option value="QA">QA</option>
+        <option value="Developer">Developer</option>
+        <option value="TeamLead">TeamLead</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-tie" [class.green-icon]="Date.valid" [class.red-icon]="Date.invalid && Date.touched"></i>
+        </div>
+      </div> 
+      <input name="Date"  #Date="ngModel" [(ngModel)]="serviceHoliday.formDataForHoliday.Date" class="form-control"  placeholder="Full name" required maxlength="20" minlength="2">
+    </div>
+  </div>
+<!--
+  <div class="form-group">
+    <div class="input-group">
+    <label for="dateForHoliday">sssssssss</label>
+    <input id="DateOfHoliday" name="dateForHoliday"  #dateForHoliday="ngModel" [(ngModel)]="dateForHoliday"
+           type="date" class="form-control">
+    </div>
+  </div>
+  -->
+  <div class="form-group">
+    <button  class="btn btn-success btn-lg btn-block" type="submit" [disabled]="formHoliday.invalid"><i class="fas fa-database"></i> Добавить отпуск</button>
+  </div>
+</form>

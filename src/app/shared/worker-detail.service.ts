@@ -11,10 +11,14 @@ export class WorkerDetailService {
   formData:WorkerDetail;
   readonly rootURL = 'https://localhost:44342/api';
   list: WorkerDetail[];
+
   constructor(private http:HttpClient) { }
+
+  //For adding in DB
   postWorkerDetail(){
     return this.http.post(this.rootURL+'/WorkerDetail',this.formData)
   }
+
   putWorkerDetail(){
     return this.http.put(this.rootURL+'/WorkerDetail/'+this.formData.PMId, this.formData)
   }
@@ -24,6 +28,8 @@ export class WorkerDetailService {
       .toPromise()
       .then(res => this.list = res as WorkerDetail[]);
   }
+  //////
+
 
   getData(): Observable<any>{
     return this.http.get<any>(this.rootURL + '/WorkerDetail');
