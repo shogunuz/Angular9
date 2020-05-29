@@ -12,13 +12,15 @@ import { WorkerDetailComponent } from './worker-details/worker-detail/worker-det
 import { WorkerDetailListComponent } from './worker-details/worker-detail-list/worker-detail-list.component';
 import {WorkerDetailService} from "./shared/worker-detail.service";
 import {FormsModule} from "@angular/forms";
+import { WorkDetailNewlistComponent } from './worker-details/work-detail-newlist/work-detail-newlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkerDetailsComponent,
     WorkerDetailComponent,
-    WorkerDetailListComponent
+    WorkerDetailListComponent,
+    WorkDetailNewlistComponent
   ],
   imports: [
     BrowserModule,

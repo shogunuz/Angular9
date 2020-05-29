@@ -1,1 +1,35 @@
-<p>worker-detail-list works!</p>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Таблица</title>
+  <style type="text/css">
+    TABLE {
+      width: 500px; /* Ширина таблицы */
+      height: 500px;
+      border: 2px solid #2e8b57; /* Рамка вокруг таблицы */
+    }
+    THEAD {
+      background: #4682b4; /* Параметры фона */
+    }
+    TD, TH {
+      padding: 5px; /* Поля вокруг содержимого ячеек */
+      align: "right";
+    }
+    .lc {
+      font-weight: bold; /* Жирное начертание текста */
+      text-align: center; /* Выравнивание по центру */
+    }
+  </style>
+</head>
+<body>
+<table class="table table-hover">
+
+  <tr bgcolor="#D3EDF6">
+  <td class="lc">ФИО</td>
+  <td class="lc">Должность</td>
+  </tr>
+  <tr *ngFor="let pd of service.list">
+    <td (click)="populateForm(pd)">{{pd.FIO}} </td>
+    <td (click)="populateForm(pd)"> {{pd.Position}} </td>
+  </tr>
+</table>
+</body>
