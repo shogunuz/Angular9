@@ -15,6 +15,7 @@ export class WorkerDetailComponent implements OnInit  {
   constructor(public service:WorkerDetailService,
               private toastr: ToastrService) {
 
+
   }
 
   ngOnInit(): void {
@@ -66,4 +67,6 @@ export class WorkerDetailComponent implements OnInit  {
       }
     )
   }
+
+
 }

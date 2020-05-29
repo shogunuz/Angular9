@@ -3,15 +3,14 @@
   <title>Таблица</title>
   <style type="text/css">
     TABLE {
-      width: 500px; /* Ширина таблицы */
-      height: 500px;
+
       border: 2px solid #2e8b57; /* Рамка вокруг таблицы */
     }
     THEAD {
       background: #4682b4; /* Параметры фона */
     }
     TD, TH {
-      padding: 5px; /* Поля вокруг содержимого ячеек */
+      padding: 1px; /* Поля вокруг содержимого ячеек */
       align: "right";
     }
     .lc {
@@ -20,16 +19,26 @@
     }
   </style>
 </head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <body>
-<table class="table table-hover">
-
-  <tr bgcolor="#D3EDF6">
-  <td class="lc">ФИО</td>
-  <td class="lc">Должность</td>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>FIO</th>
+    <th>Position</th>
   </tr>
-  <tr *ngFor="let pd of service.list">
-    <td (click)="populateForm(pd)">{{pd.FIO}} </td>
-    <td (click)="populateForm(pd)"> {{pd.Position}} </td>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of service.list |  paginate: {id: 'listing_pagination',
+  itemsPerPage: 5,
+  currentPage: page,
+  totalItems: totalRecords}">
+  <td>{{user.FIO}}</td>
+  <td>{{user.Position}}</td>
   </tr>
+  </tbody>
 </table>
+<div>
+  <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
 </body>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {WorkerDetail} from "./worker-detail.model";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -11,7 +12,6 @@ export class WorkerDetailService {
   readonly rootURL = 'https://localhost:44342/api';
   list: WorkerDetail[];
   constructor(private http:HttpClient) { }
- // workerList: AngularF
   postWorkerDetail(){
     return this.http.post(this.rootURL+'/WorkerDetail',this.formData)
   }
@@ -25,7 +25,8 @@ export class WorkerDetailService {
       .then(res => this.list = res as WorkerDetail[]);
   }
 
-  getWorkers(){
-   // this.
+  getData(): Observable<any>{
+    return this.http.get<any>(this.rootURL + '/WorkerDetail');
   }
+
 }

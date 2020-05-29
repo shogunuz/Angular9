@@ -9,13 +9,18 @@ import {WorkerDetail} from "../../shared/worker-detail.model";
 })
 export class WorkerDetailListComponent implements OnInit {
 
-  constructor(public service: WorkerDetailService) { }
+  totalRecords: string
+  page: number=1
+
+  constructor(public service: WorkerDetailService) {
+  }
 
   ngOnInit(): void {
     this.service.refreshList();
   }
-  populateForm(pd:WorkerDetail){
+   /*
+   populateForm(pd:WorkerDetail){
     this.service.formData = Object.assign({},pd);
-  }
+  } */
 
 }
