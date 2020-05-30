@@ -32,7 +32,6 @@ export class WorkerHolidayComponent implements OnInit {
   }
   onSubmitHoliday(formHoliday:NgForm)
     {
-
         this.serviceHoliday.formDataForHoliday.IdForH = 0;
         console.log(this.serviceHoliday.formDataForHoliday.IdForH);
         this.serviceHoliday.formDataForHoliday.Date = (this.serviceHoliday.formDataForHoliday.Date).toString();
