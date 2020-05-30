@@ -30,10 +30,10 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of serviceHoliday.listForHoliday |  paginate: {id: 'listing_pagination',
+  <tr *ngFor="let user of serviceHoliday.listForHoliday |  paginate: {id: 'listing_paginationHoliday',
   itemsPerPage: 5,
-  currentPage: page,
-  totalItems: totalRecords}">
+  currentPage: pageH,
+  totalItems: totalRecordsH}">
     <td>{{user.FIO}}</td>
     <td>{{user.Position}}</td>
     <td>{{user.Date}}</td>
@@ -41,6 +41,6 @@
   </tbody>
 </table>
 <div>
-  <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  <pagination-controls id="listing_paginationHoliday" maxSize="5" directionLinks="true" (pageChange)="pageH = $event"></pagination-controls>
 </div>
 </body>

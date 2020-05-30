@@ -14,15 +14,13 @@ export class WorkerHolidayListComponent implements OnInit {
   constructor(public serviceHoliday:WorkerHolidayService,
               private dataService: DataService) { }
 
-  totalRecords: string;
-  page: number=1;
+  totalRecordsH: string;
+  pageH: number=1;
 
   ngOnInit(): void {
     this.serviceHoliday.refreshListOfHolidays();
   }
-  get data():any{
-    return this.dataService.sharedData;
-  }
+
 /*
   populateFormHoliday(data){
 

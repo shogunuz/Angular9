@@ -16,6 +16,8 @@ export class WorkerDetailService {
 
   //For adding in DB
   postWorkerDetail(){
+    console.log("This is postRequest of WorkDetail:");
+    console.log(this.formData);
     return this.http.post(this.rootURL+'/WorkerDetail',this.formData)
   }
 

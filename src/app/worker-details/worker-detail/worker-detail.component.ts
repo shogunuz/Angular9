@@ -36,7 +36,9 @@ export class WorkerDetailComponent implements OnInit  {
 
   onSubmit(form:NgForm){
     if(this.service.formData.PMId == 0)
-    this.insertRecord(form);
+    {
+      this.insertRecord(form);
+    }
     else{
       this.updateRecord(form) ;
     }

@@ -20,18 +20,12 @@ export class WorkerDetailListComponent implements OnInit {
 
 
   constructor(public service: WorkerDetailService,
-              private dataService: DataService,
-              private serviceHoliday: WorkerHolidayService) {
+              private serviceHoliday: WorkerHolidayService) { //,
+  //
   }
 
   ngOnInit(): void {
     this.service.refreshList();
-  }
-  get data():any{
-    return this.dataService.sharedData;
-  }
-  set data(value: any){
-    this.dataService.sharedData = value;
   }
    populateForm(pd:WorkerDetail){
      //this.service.formData = Object.assign({},pd);

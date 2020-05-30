@@ -23,20 +23,21 @@ export class WorkerHolidayComponent implements OnInit {
       formHoliday.resetForm();
     this.serviceHoliday.formDataForHoliday = {
       PMId:0,
+      IdForH:0,
       FIO:'',
       Position:'',
       Date:''
     }
 
   }
-  onSubmitHoliday(formHoliday:NgForm){
-    if(this.serviceHoliday.formDataForHoliday.PMId == 0)
-       console.log("You haven't choosen user yet!");
-    else{
-      this.insertRecord(formHoliday);
-      console.log("This is form:\n"+formHoliday)
+  onSubmitHoliday(formHoliday:NgForm)
+    {
+
+        this.serviceHoliday.formDataForHoliday.IdForH = 0;
+        console.log(this.serviceHoliday.formDataForHoliday.IdForH);
+        this.serviceHoliday.formDataForHoliday.Date = (this.serviceHoliday.formDataForHoliday.Date).toString();
+        this.insertRecord(formHoliday);
     }
-  }
   insertRecord(formHoliday:NgForm){
     this.serviceHoliday.postWorkerHoliday().subscribe(
       res => {

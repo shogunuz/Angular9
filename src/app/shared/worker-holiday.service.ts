@@ -8,10 +8,9 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class WorkerHolidayService {
-  formDataForHoliday:WorkerHoliday;
+  formDataForHoliday: WorkerHoliday;
   readonly rootURLHoliday = 'https://localhost:44342/api';
   listForHoliday: WorkerHoliday[];
-
   constructor(private http:HttpClient) { }
 
 
@@ -21,7 +20,7 @@ export class WorkerHolidayService {
   }
 
   putWorkerHoliday(){
-    return this.http.put(this.rootURLHoliday+'/WorkerHolidays/'+this.formDataForHoliday.PMId, this.formDataForHoliday)
+    return this.http.put(this.rootURLHoliday+'/WorkerHolidays/'+this.formDataForHoliday.IdForH, this.formDataForHoliday)
   }
 
   refreshListOfHolidays(){
@@ -29,10 +28,10 @@ export class WorkerHolidayService {
       .toPromise()
       .then(res => this.listForHoliday = res as WorkerHoliday[]);
   }
+  recycleDate(){
+
+  }
 /////////
 
-  getData(): Observable<any>{
-    return this.http.get<any>(this.rootURLHoliday + '/WorkerHolidays');
-  }
 
 }
