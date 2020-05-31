@@ -9,9 +9,24 @@ import {WorkerHolidayService} from "../../shared/worker-holiday.service";
   styleUrls: ['./worker-holiday.component.css']
 })
 export class WorkerHolidayComponent implements OnInit {
+   minDateStart: Date;
+   maxDateStart: Date;
+   minDateEnd: Date;
+   maxDateEnd: Date;
+   Datess: Date;
 
   constructor(public serviceHoliday:WorkerHolidayService,
-              private toaster: ToastrService) { }
+              private toaster: ToastrService)
+    {
+      this.minDateStart = new Date();
+      this.minDateEnd = new Date();
+      this.maxDateStart = new Date();
+      this.maxDateEnd = new Date();
+      this.minDateStart.setDate(this.minDateStart.getDate() + 1);
+      this.maxDateStart.setDate(this.maxDateStart.getDate() + 300);
+      this.minDateEnd.setDate(this.minDateEnd.getDate() + 2);
+      this.maxDateEnd.setDate(this.maxDateEnd.getDate() + 365);
+    }
 
   ngOnInit(): void {
     this.resetForm();
@@ -26,15 +41,18 @@ export class WorkerHolidayComponent implements OnInit {
       IdForH:0,
       FIO:'',
       Position:'',
-      Date:''
+      DateStart:null,
+      DateEnd:null
     }
 
   }
   onSubmitHoliday(formHoliday:NgForm)
     {
         this.serviceHoliday.formDataForHoliday.IdForH = 0;
-        console.log((this.serviceHoliday.formDataForHoliday.Date).toString());
-        this.serviceHoliday.formDataForHoliday.Date = (this.serviceHoliday.formDataForHoliday.Date).toString();
+        console.log((this.serviceHoliday.formDataForHoliday.DateStart).toString());
+        console.log((this.serviceHoliday.formDataForHoliday.DateEnd).toString());
+        console.log((this.serviceHoliday.formDataForHoliday.DateEnd));
+       // this.serviceHoliday.formDataForHoliday.Date = (this.serviceHoliday.formDataForHoliday.Date).toString();
         this.insertRecord(formHoliday);
     }
   insertRecord(formHoliday:NgForm){
