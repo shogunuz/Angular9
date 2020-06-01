@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {WorkerHolidayService} from "../../shared/worker-holiday.service";
-import {WorkerDetail} from "../../shared/worker-detail.model";
-import {WorkerHoliday} from "../../shared/worker-holiday.model";
 import {DataService} from "../../data.service";
 
 @Component({
@@ -11,8 +9,7 @@ import {DataService} from "../../data.service";
 })
 export class WorkerHolidayListComponent implements OnInit {
 
-  constructor(public serviceHoliday:WorkerHolidayService,
-              private dataService: DataService) { }
+  constructor(public serviceHoliday:WorkerHolidayService) { }
 
   totalRecordsH: string;
   pageH: number=1;
@@ -21,14 +18,4 @@ export class WorkerHolidayListComponent implements OnInit {
     this.serviceHoliday.refreshListOfHolidays();
   }
 
-/*
-  populateFormHoliday(data){
-
-    this.pdh.PMId = this.data.PMId;
-    this.pdh.FIO = this.data.FIO;
-    this.pdh.Position = this.data.Position;
-    this.pdh.DateOfHoliday = '';
-    this.serviceHoliday.formDataForHoliday = Object.assign({},this.pdh);
-  }
-  */
 }

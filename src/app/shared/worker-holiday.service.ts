@@ -19,6 +19,7 @@ export class WorkerHolidayService {
     return this.http.post(this.rootURLHoliday+'/WorkerHolidays',this.formDataForHoliday)
   }
 
+  //не успел еще реализовать((
   putWorkerHoliday(){
     return this.http.put(this.rootURLHoliday+'/WorkerHolidays/'+this.formDataForHoliday.IdForH, this.formDataForHoliday)
   }
@@ -28,10 +29,6 @@ export class WorkerHolidayService {
       .toPromise()
       .then(res => this.listForHoliday = res as WorkerHoliday[]);
   }
-  recycleDate(){
-
-  }
-/////////
 
 
 }

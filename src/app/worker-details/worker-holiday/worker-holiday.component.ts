@@ -13,8 +13,7 @@ export class WorkerHolidayComponent implements OnInit {
    maxDateStart: Date;
    minDateEnd: Date;
    maxDateEnd: Date;
-   Datess: Date;
-  keynumber: number=0;
+   keynumber: number=0;
   constructor(public serviceHoliday:WorkerHolidayService,
               private toaster: ToastrService)
     {
@@ -55,7 +54,6 @@ export class WorkerHolidayComponent implements OnInit {
         console.log((this.serviceHoliday.formDataForHoliday.DateStart).toString());
         console.log((this.serviceHoliday.formDataForHoliday.DateEnd).toString());
         console.log((this.serviceHoliday.formDataForHoliday.DateEnd));
-       // this.serviceHoliday.formDataForHoliday.Date = (this.serviceHoliday.formDataForHoliday.Date).toString();
         this.insertRecord(formHoliday);
     }
   insertRecord(formHoliday:NgForm){
@@ -72,15 +70,12 @@ export class WorkerHolidayComponent implements OnInit {
     )
   }
   gettingMinDate(){
-    //if(this.serviceHoliday.formDataForHoliday.DateStart != null)
       this.minDateEnd = new Date(this.serviceHoliday.formDataForHoliday.DateStart);
       this.minDateEnd.setDate(this.minDateEnd.getDate() + 1);
   }
-  //@ViewChild('DateEnd', {})
 
   cleaningEndDate(DateEnd){
     this.serviceHoliday.formDataForHoliday.DateEnd = null;
-    //this.serviceHoliday.formDataForHoliday
     DateEnd.value = null;
   }
 }

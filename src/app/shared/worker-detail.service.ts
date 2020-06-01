@@ -30,9 +30,6 @@ export class WorkerDetailService {
       .toPromise()
       .then(res => this.list = res as WorkerDetail[]);
   }
-  //////
-
-
   getData(): Observable<any>{
     return this.http.get<any>(this.rootURL + '/WorkerDetail');
   }
